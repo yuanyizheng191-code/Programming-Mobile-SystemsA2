@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supermarket Inventory System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <h1>Supermarket Inventory Management</h1>
+      <p>Manage stock, track items, and maintain inventory efficiently</p>
+    </header>
+
+    <!-- Add Item Form -->
+    <div class="card">
+      <h2 class="card-title">Add New Item</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Item ID (Unique)</label>
+          <input type="text" id="itemId" placeholder="Enter unique ID">
+        </div>
+        <div class="form-group">
+          <label>Item Name</label>
+          <input type="text" id="itemName" placeholder="Item name">
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select id="category">
+            <option value="">Select category</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Tools">Tools</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Quantity</label>
+          <input type="number" id="quantity" min="0" placeholder="0">
+        </div>
+        <div class="form-group">
+          <label>Price ($)</label>
+          <input type="number" id="price" min="0" step="0.01" placeholder="0.00">
+        </div>
+        <div class="form-group">
+          <label>Supplier Name</label>
+          <input type="text" id="supplierName" placeholder="Supplier">
+        </div>
+        <div class="form-group">
+          <label>Popular Item</label>
+          <select id="isPopular">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Comment (Optional)</label>
+          <input type="text" id="comment" placeholder="Optional note">
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="addItem()">Add Item</button>
+    </div>
+
+    <!-- Search -->
+    <div class="card">
+      <h2 class="card-title">Search Item</h2>
+      <input type="text" class="search-bar" id="searchName" placeholder="Search by item name..." oninput="searchItems()">
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="btn-group">
+      <button class="btn btn-success" onclick="showAllItems()">Show All Items</button>
+      <button class="btn btn-warning" onclick="showPopularItems()">Show Popular Items</button>
+      <button class="btn" onclick="clearForm()">Clear Form</button>
+    </div>
+
+    <!-- Table -->
+    <div class="card">
+      <h2 class="card-title">Inventory List</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>Supplier</th>
+              <th>Status</th>
+              <th>Popular</th>
+              <th>Comment</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="dist/inventory.js"></script>
+</body>
+</html>
