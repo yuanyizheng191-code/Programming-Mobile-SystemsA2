@@ -1,37 +1,57 @@
+<!--
+  inventory.html
+  @author Yizheng Yuan
+  @assignment Programming Mobile Systems - Part 2 (Angular Implementation)
+-->
+
+<!-- Main container for the inventory management system -->
 <div class="inv-container">
   <div class="inv-header">
     <h1>Inventory Management</h1>
     <p>Manage products, stock, and popular items</p>
   </div>
 
+  <!-- Form card for adding/editing inventory items -->
   <div class="form-card">
     <div class="form-grid">
+      <!-- Product ID Field -->
       <div class="form-group">
         <label>Product ID</label>
         <input type="text" [(ngModel)]="newItem.id" placeholder="ID">
       </div>
+
+      <!-- Product Name Field -->
       <div class="form-group">
         <label>Product Name</label>
         <input type="text" [(ngModel)]="newItem.name" placeholder="Name">
       </div>
+      
+      <!-- Category Field -->
       <div class="form-group">
         <label>Category</label>
         <input type="text" [(ngModel)]="newItem.category" placeholder="Category">
       </div>
+
+      <!-- Quantity Field -->
       <div class="form-group">
         <label>Quantity</label>
         <input type="number" [(ngModel)]="newItem.quantity" placeholder="0">
       </div>
+
+      <!-- Price Field -->
       <div class="form-group">
         <label>Price</label>
         <input type="number" [(ngModel)]="newItem.price" placeholder="0.00">
       </div>
+
+      <!-- Supplier Field -->
       <div class="form-group">
         <label>Supplier</label>
         <input type="text" [(ngModel)]="newItem.supplier" placeholder="Supplier">
       </div>
     </div>
 
+    <!-- Popular Checkbox -->
     <div class="popular-row">
       <label>
         <input type="checkbox" [(ngModel)]="newItem.popular">
@@ -39,12 +59,16 @@
       </label>
     </div>
 
+    <!-- Save and Clear Buttons -->
     <div class="button-row">
       <button class="btn save-btn" (click)="saveItem()">Save</button>
       <button class="btn clear-btn" (click)="clearForm()">Clear</button>
     </div>
   </div>
 
+  <!-- Inventory Table Card -->
+  <!-- Displays all inventory items in a table format -->
+  <!-- Includes columns for ID, Name, Category, Qty, Price, Supplier, Popular, Status, and Actions -->
   <div class="table-card">
     <table class="inventory-table">
       <thead>

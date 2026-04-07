@@ -1,6 +1,14 @@
+<!--
+  app.html
+  @author Yizheng Yuan
+  @assignment Programming Mobile Systems - Part 2 (Angular Implementation)
+-->
 <nav class="navbar">
   <div class="nav-container">
+    <!-- Application Logo/Title -->
     <h2>Inventory System</h2>
+    <!-- Navigation Menu -->
+    <!-- Uses Angular Router's routerLink directive for client-side navigation -->
     <ul class="nav-menu">
       <li><a routerLink="/home">Home</a></li>
       <li><a routerLink="/inventory">Inventory</a></li>
@@ -11,6 +19,7 @@
   </div>
 </nav>
 
+<!-- Main Content Area -->
 <div class="main-content">
   <router-outlet></router-outlet>
 </div>

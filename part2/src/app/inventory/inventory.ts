@@ -1,3 +1,11 @@
+/**
+ * inventory.ts
+ * @description Angular Component for Inventory CRUD Operations
+ * @author Yizheng Yuan
+ * @assignment Programming Mobile Systems - Part 2 (Angular Implementation)
+ */
+
+// Import necessary Angular modules and Reactive Forms
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,8 +17,8 @@ import { InventoryService, InventoryItem } from '../inventory.service';
   styleUrls: ['inventory.css'],
   imports: [CommonModule, FormsModule]
 })
-export class InventoryPage implements OnInit {
-  items: InventoryItem[] = [];
+export class InventoryPage implements OnInit {// Component State Properties
+  items: InventoryItem[] = [];// // Stores the list of all inventory items from the service
 
   newItem: InventoryItem = {
     id: '',
@@ -29,18 +37,21 @@ export class InventoryPage implements OnInit {
   constructor(private inventoryService: InventoryService) {}
 
   ngOnInit(): void {
+    // Subscribe to the inventory service to update local items when they change
     this.inventoryService.items$.subscribe(data => {
       this.items = data;
     });
   }
 
   saveItem(): void {
+    // Validate the form fields
     if (!this.newItem.id || !this.newItem.name) {
       alert('Please fill in Product ID and Product Name!');
       return;
     }
 
 
+    // Calculate the status based on the quantity
     this.newItem.status = this.calculateStatus(this.newItem.quantity);
 
     if (this.isEditing) {

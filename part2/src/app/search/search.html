@@ -1,9 +1,19 @@
+<!--
+  search.html
+  @author Yizheng Yuan
+  @assignment Programming Mobile Systems - Part 2 (Angular Implementation)
+-->
+
+<!-- Main container for the search page -->
 <div class="search-container">
   <div class="search-header">
     <h1>Search Products</h1>
     <p>Find products by name, ID, or category</p>
   </div>
 
+  <!-- Search box -->
+  <!-- Allows users to input search keywords -->
+  <!-- Triggers the search when clicked -->
   <div class="search-box">
     <input 
       type="text" 
@@ -13,6 +23,10 @@
     <button class="search-btn" (click)="doSearch()">Search</button>
   </div>
 
+  
+  <!-- Search results -->
+  <!-- Displays the search results -->
+  <!-- If no results are found, displays a message -->
   <div class="search-results" *ngIf="results.length > 0">
     <h3>Search Results ({{ results.length }})</h3>
     <table class="result-table">
@@ -45,6 +59,9 @@
     </table>
   </div>
 
+  <!-- No results message -->
+  <!-- Displays when no results are found -->
+  <!-- Includes a suggestion to try again -->
   <div class="no-results" *ngIf="keyword && results.length === 0">
     No items found matching your search.
   </div>

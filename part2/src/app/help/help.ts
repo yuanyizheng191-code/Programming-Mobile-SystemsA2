@@ -1,3 +1,11 @@
+/**
+ * help.ts
+ * @description Angular Component for displaying the Help & User Guide
+ * @author Yizheng Yuan
+ * @assignment Programming Mobile Systems - Part 2 (Angular Implementation)
+ */
+
+// Import Angular Component decorator
 import { Component } from '@angular/core';
 
 @Component({
@@ -5,4 +13,6 @@ import { Component } from '@angular/core';
   templateUrl: 'help.html',
   styleUrls: ['help.css']
 })
+
+// Export the HelpPage class
 export class HelpPage {}
