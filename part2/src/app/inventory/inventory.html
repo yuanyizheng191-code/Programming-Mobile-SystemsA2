@@ -1,0 +1,87 @@
+<div class="inv-container">
+  <div class="inv-header">
+    <h1>Inventory Management</h1>
+    <p>Manage products, stock, and popular items</p>
+  </div>
+
+  <div class="form-card">
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Product ID</label>
+        <input type="text" [(ngModel)]="newItem.id" placeholder="ID">
+      </div>
+      <div class="form-group">
+        <label>Product Name</label>
+        <input type="text" [(ngModel)]="newItem.name" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <label>Category</label>
+        <input type="text" [(ngModel)]="newItem.category" placeholder="Category">
+      </div>
+      <div class="form-group">
+        <label>Quantity</label>
+        <input type="number" [(ngModel)]="newItem.quantity" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label>Price</label>
+        <input type="number" [(ngModel)]="newItem.price" placeholder="0.00">
+      </div>
+      <div class="form-group">
+        <label>Supplier</label>
+        <input type="text" [(ngModel)]="newItem.supplier" placeholder="Supplier">
+      </div>
+    </div>
+
+    <div class="popular-row">
+      <label>
+        <input type="checkbox" [(ngModel)]="newItem.popular">
+        Mark as Popular
+      </label>
+    </div>
+
+    <div class="button-row">
+      <button class="btn save-btn" (click)="saveItem()">Save</button>
+      <button class="btn clear-btn" (click)="clearForm()">Clear</button>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <table class="inventory-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Supplier</th>
+          <th>Popular</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.category }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>${{ item.price.toFixed(2) }}</td>
+          <td>{{ item.supplier || '-' }}</td>
+          <td>
+            <span class="popular-tag" *ngIf="item.popular">Popular</span>
+          </td>
+          <td>
+            <span class="status-badge status-{{item.status.toLowerCase().replace(' ', '-')}}">
+              {{ item.status }}
+            </span>
+          </td>
+          <td>
+            <button class="action-btn edit-btn" (click)="editItem(item)">Edit</button>
+            <button class="action-btn delete-btn" (click)="deleteItem(item.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

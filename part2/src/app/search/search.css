@@ -1,0 +1,134 @@
+.search-container {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.search-header {
+  margin-bottom: 2rem;
+}
+
+.search-header h1 {
+  font-size: 2.2rem;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.search-header p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.search-box {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #f8fafc;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 1rem 1.8rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.search-btn:hover {
+  background: #2563eb;
+}
+
+.search-results {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.result-table th {
+  background: #f8fafc;
+  padding: 1rem;
+  text-align: left;
+  color: #374151;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.result-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+}
+
+.popular-tag {
+  background: #f59e0b;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.status-badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+.status-in-stock {
+  background: #10b981;
+}
+
+.status-low-stock {
+  background: #f59e0b;
+}
+
+.status-out-of-stock {
+  background: #ef4444;
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+  font-size: 1.1rem;
+  background: #ffffff;
+  border-radius: 16px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}

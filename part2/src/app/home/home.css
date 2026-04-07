@@ -1,0 +1,47 @@
+.home-container {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.home-header h1 {
+  font-size: 2.4rem;
+  color: #1e293b;
+  margin-bottom: 0.6rem;
+}
+
+.home-header p {
+  font-size: 1.1rem;
+  color: #64748b;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+.home-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  border-left: 6px solid #2563eb;
+}
+
+.home-card h3 {
+  color: #2563eb;
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+}
+
+.home-card p {
+  color: #475569;
+  line-height: 1.6;
+}

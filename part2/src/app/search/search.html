@@ -1,0 +1,51 @@
+<div class="search-container">
+  <div class="search-header">
+    <h1>Search Products</h1>
+    <p>Find products by name, ID, or category</p>
+  </div>
+
+  <div class="search-box">
+    <input 
+      type="text" 
+      [(ngModel)]="keyword" 
+      placeholder="Search by name, ID, category..."
+    >
+    <button class="search-btn" (click)="doSearch()">Search</button>
+  </div>
+
+  <div class="search-results" *ngIf="results.length > 0">
+    <h3>Search Results ({{ results.length }})</h3>
+    <table class="result-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Qty</th>
+          <th>Popular</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of results">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.category }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>
+            <span class="popular-tag" *ngIf="item.popular">Popular</span>
+          </td>
+          <td>
+            <span class="status-badge status-{{item.status.toLowerCase().replace(' ', '-')}}">
+              {{ item.status }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="no-results" *ngIf="keyword && results.length === 0">
+    No items found matching your search.
+  </div>
+</div>

@@ -1,0 +1,194 @@
+.inv-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.inv-header {
+  margin-bottom: 2rem;
+}
+
+.inv-header h1 {
+  font-size: 2.2rem;
+  color: #1e293b;
+  margin: 0;
+}
+
+.inv-header p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* White form card */
+.form-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f1f5f9;
+}
+
+/* 3 columns × 2 rows grid layout */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns equally divided */
+  grid-template-rows: auto auto; /* 2 rows */
+  gap: 1.5rem; /* Row and column spacing */
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  padding: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* Popular checkbox */
+.popular-row {
+  margin: 1rem 0 1.5rem 0;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Button group */
+.button-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.save-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.clear-btn {
+  background: #f59e0b;
+  color: white;
+}
+
+.clear-btn:hover {
+  background: #d97706;
+  transform: translateY(-1px);
+}
+
+/* Table card */
+.table-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f1f5f9;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory-table th {
+  background: #f8fafc;
+  padding: 1rem;
+  text-align: left;
+  color: #374151;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.inventory-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+}
+
+/* Popular tag */
+.popular-tag {
+  background: #f59e0b;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* Status badge */
+.status-badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+.status-in-stock { background: #10b981; }
+.status-low-stock { background: #f59e0b; }
+.status-out-of-stock { background: #ef4444; }
+
+/* Action buttons */
+.action-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background: #4f46e5;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #4338ca;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
