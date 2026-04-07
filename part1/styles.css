@@ -1,10 +1,18 @@
-* {
+
+/**
+ * styles.css
+ * @author Yizheng Yuan
+ * @assignment Programming Mobile Systems - Part 1
+ * @date 2026-04-01
+ */
+ * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
+/* Base Styles */
 body {
   background: #f8fafc;
   color: #1e293b;

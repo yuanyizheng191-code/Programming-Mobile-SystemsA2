@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+  Author: Yizheng Yuan
+  Assignment: Programming Mobile Systems - Part 1
+  Date: 2026-04-01
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,6 +13,8 @@
 </head>
 <body>
   <div class="container">
+    <!-- Page Header -->
+    <!-- Contains the main title and description of the application -->
     <header class="page-header">
       <h1>Supermarket Inventory Management</h1>
       <p>Manage stock, track items, and maintain inventory efficiently</p>
@@ -18,13 +25,16 @@
       <h2 class="card-title">Add New Item</h2>
       <div class="form-grid">
         <div class="form-group">
+          <!-- Item ID Input -->
           <label>Item ID (Unique)</label>
           <input type="text" id="itemId" placeholder="Enter unique ID">
         </div>
+        <!-- Item Name Input -->
         <div class="form-group">
           <label>Item Name</label>
           <input type="text" id="itemName" placeholder="Item name">
         </div>
+        <!-- Category Input -->
         <div class="form-group">
           <label>Category</label>
           <select id="category">
@@ -36,18 +46,22 @@
             <option value="Miscellaneous">Miscellaneous</option>
           </select>
         </div>
+        <!-- Quantity Input -->
         <div class="form-group">
           <label>Quantity</label>
           <input type="number" id="quantity" min="0" placeholder="0">
         </div>
+        <!-- Price Input -->
         <div class="form-group">
           <label>Price ($)</label>
           <input type="number" id="price" min="0" step="0.01" placeholder="0.00">
         </div>
+        <!-- Supplier Name Input -->
         <div class="form-group">
           <label>Supplier Name</label>
           <input type="text" id="supplierName" placeholder="Supplier">
         </div>
+        <!-- Popular Item Input -->
         <div class="form-group">
           <label>Popular Item</label>
           <select id="isPopular">
@@ -55,11 +69,13 @@
             <option value="false">No</option>
           </select>
         </div>
+        <!-- Comment Input -->
         <div class="form-group">
           <label>Comment (Optional)</label>
           <input type="text" id="comment" placeholder="Optional note">
         </div>
-      </div>
+      </div> 
+      <!-- Add Item Button -->
       <button class="btn btn-primary" onclick="addItem()">Add Item</button>
     </div>
 

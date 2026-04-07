@@ -1,3 +1,9 @@
+// Inventory management system
+// Author: Yizheng Yuan
+// Assignment: Programming Mobile Systems - Part 1
+// Date: 2026-04-01
+
+// Interface defining the structure of an inventory item
 interface InventoryItem {
   itemId: string;
   itemName: string;
@@ -10,7 +16,8 @@ interface InventoryItem {
   comment?: string;
 }
 
-let inventory: InventoryItem[] = [];
+
+let inventory: InventoryItem[] = [];  // Array to store all inventory items
 
 const tableBody = document.getElementById('tableBody')!;
 const itemIdInput = document.getElementById('itemId') as any;
@@ -22,21 +29,33 @@ const supplierInput = document.getElementById('supplierName') as any;
 const isPopularInput = document.getElementById('isPopular') as any;
 const commentInput = document.getElementById('comment') as any;
 
+
+/**
+ * Calculates the stock status based on quantity
+ * @param qty - Current quantity of the item
+ * @returns A string representing the stock status
+ */
 function getStockStatus(qty: number): string {
   if (qty === 0) return 'Out of Stock';
   if (qty <= 5) return 'Low Stock';
   return 'In Stock';
 }
 
+/**
+ * Handles adding a new item to the inventory
+ * Validates input, checks for duplicates, and updates the UI
+ */
 function addItem(): void {
   const id = itemIdInput.value.trim();
   const name = itemNameInput.value.trim();
 
+  // Validation: Check if ID and Name are provided
   if (!id || !name) {
     alert('ID and Name are required!');
     return;
   }
 
+  // Validation: Check for duplicate Item ID and Item Name
   if (inventory.some(i => i.itemId === id)) {
     alert('Item ID already exists!');
     return;
@@ -50,6 +69,7 @@ function addItem(): void {
   const qty = parseInt(quantityInput.value) || 0;
   const priceVal = parseFloat(priceInput.value) || 0;
 
+  // Create new item object
   const newItem: InventoryItem = {
     itemId: id,
     itemName: name,
@@ -67,6 +87,10 @@ function addItem(): void {
   renderTable(inventory);
 }
 
+/**
+ * Renders the inventory list as HTML table rows
+ * @param items - Array of items to display
+ */
 function renderTable(items: InventoryItem[]): void {
   tableBody.innerHTML = '';
   items.forEach(item => {
@@ -90,20 +114,28 @@ function renderTable(items: InventoryItem[]): void {
   });
 }
 
+//Filters and displays items based on search keyword
 function searchItems(): void {
   const keyword = (document.getElementById('searchName') as any).value.toLowerCase();
   const filtered = inventory.filter(i => i.itemName.toLowerCase().includes(keyword));
   renderTable(filtered);
 }
 
+//Displays only items marked as popular
 function showPopularItems(): void {
   renderTable(inventory.filter(i => i.isPopular));
 }
 
+/**
+ * Edits an existing item
+ * Populates the form with current data and marks it for update
+ * @param id - ID of the item to edit
+ */
 function editItem(id: string): void {
   const item = inventory.find(i => i.itemId === id);
   if (!item) return;
 
+// Populate form fields with existing data
   itemIdInput.value = item.itemId;
   itemNameInput.value = item.itemName;
   categoryInput.value = item.category;
@@ -112,6 +144,7 @@ function editItem(id: string): void {
   supplierInput.value = item.supplierName;
   isPopularInput.value = item.isPopular.toString();
   commentInput.value = item.comment || '';
+  // Delete the old item to replace it with the updated one
   deleteItem(id, true);
 }
 
@@ -121,6 +154,7 @@ function deleteItem(id: string, silent = false): void {
   renderTable(inventory);
 }
 
+//Clears all input fields in the form
 function clearForm(): void {
   itemIdInput.value = '';
   itemNameInput.value = '';
