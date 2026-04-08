@@ -12,11 +12,12 @@ import { BehaviorSubject } from 'rxjs';
 export interface InventoryItem {
   id: string;
   name: string;
-  category: string;
+  category: 'Electronics' | 'Furniture' | 'Clothing' | 'Tools' | 'Miscellaneous';
   quantity: number;
   price: number;
   supplier: string;
   popular: boolean;
+  comments: string;
   status: 'In Stock' | 'Low Stock' | 'Out of Stock';
 }
 
@@ -29,7 +30,17 @@ export class InventoryService {
   private items = new BehaviorSubject<InventoryItem[]>([]);
   items$ = this.items.asObservable();
 
-  addItem(item: InventoryItem) {
+  /**
+   * Check if an inventory item with the given ID exists
+   * @param id The ID to check
+   * @returns True if the ID exists, False otherwise
+   */
+  isIdExists(id: string): boolean {
+    return this.items.value.some(item => item.id === id);
+  }
+
+
+addItem(item: InventoryItem) {
     this.items.next([...this.items.value, item]);
   }
 

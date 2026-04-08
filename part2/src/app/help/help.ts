@@ -1,9 +1,8 @@
-/**
- * help.ts
- * @description Angular Component for displaying the Help & User Guide
- * @author Yizheng Yuan
- * @assignment Programming Mobile Systems - Part 2 (Angular Implementation)
- */
+// ==============================================
+// Author: Yizheng Yuan
+// Assignment: Programming Mobile Systems - Part 2
+// Description: Help Component
+// ==============================================
 
 // Import Angular Component decorator
 import { Component } from '@angular/core';

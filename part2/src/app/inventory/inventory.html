@@ -1,76 +1,72 @@
-<!--
-  inventory.html
-  @author Yizheng Yuan
-  @assignment Programming Mobile Systems - Part 2 (Angular Implementation)
--->
+<!-- ==============================================
+Author: Yizheng Yuan
+Assignment: Programming Mobile Systems - Part 2
+Description: Inventory Management UI
+================================================= -->
 
-<!-- Main container for the inventory management system -->
-<div class="inv-container">
-  <div class="inv-header">
-    <h1>Inventory Management</h1>
-    <p>Manage products, stock, and popular items</p>
-  </div>
+<div class="container">
+  <h1>Inventory Management</h1>
 
-  <!-- Form card for adding/editing inventory items -->
   <div class="form-card">
     <div class="form-grid">
-      <!-- Product ID Field -->
       <div class="form-group">
-        <label>Product ID</label>
-        <input type="text" [(ngModel)]="newItem.id" placeholder="ID">
+        <label>Item ID *</label>
+        <input [(ngModel)]="newItem.id" [disabled]="isEditing" type="text" placeholder="Unique ID">
       </div>
 
-      <!-- Product Name Field -->
       <div class="form-group">
-        <label>Product Name</label>
-        <input type="text" [(ngModel)]="newItem.name" placeholder="Name">
-      </div>
-      
-      <!-- Category Field -->
-      <div class="form-group">
-        <label>Category</label>
-        <input type="text" [(ngModel)]="newItem.category" placeholder="Category">
+        <label>Item Name *</label>
+        <input [(ngModel)]="newItem.name" type="text" placeholder="Name">
       </div>
 
-      <!-- Quantity Field -->
       <div class="form-group">
-        <label>Quantity</label>
-        <input type="number" [(ngModel)]="newItem.quantity" placeholder="0">
+  <label>Category *</label>
+  <select [(ngModel)]="newItem.category">
+    <option value="" disabled selected>-- Select Category --</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Furniture">Furniture</option>
+    <option value="Clothing">Clothing</option>
+    <option value="Tools">Tools</option>
+    <option value="Miscellaneous">Miscellaneous</option>
+  </select>
+</div>
+
+      <div class="form-group">
+        <label>Quantity *</label>
+        <input [(ngModel)]="newItem.quantity" type="number" min="0">
       </div>
 
-      <!-- Price Field -->
       <div class="form-group">
-        <label>Price</label>
-        <input type="number" [(ngModel)]="newItem.price" placeholder="0.00">
+        <label>Price *</label>
+        <input [(ngModel)]="newItem.price" type="number" min="0" step="0.01">
       </div>
 
-      <!-- Supplier Field -->
       <div class="form-group">
-        <label>Supplier</label>
-        <input type="text" [(ngModel)]="newItem.supplier" placeholder="Supplier">
+        <label>Supplier *</label>
+        <input [(ngModel)]="newItem.supplier" type="text" placeholder="Supplier">
       </div>
     </div>
 
-    <!-- Popular Checkbox -->
-    <div class="popular-row">
+    <div class="form-group checkbox-row">
       <label>
-        <input type="checkbox" [(ngModel)]="newItem.popular">
+        <input [(ngModel)]="newItem.popular" type="checkbox">
         Mark as Popular
       </label>
     </div>
 
-    <!-- Save and Clear Buttons -->
+    <div class="form-group full-width">
+      <label>Comments (Optional)</label>
+      <textarea [(ngModel)]="newItem.comments" rows="3"></textarea>
+    </div>
+
     <div class="button-row">
-      <button class="btn save-btn" (click)="saveItem()">Save</button>
-      <button class="btn clear-btn" (click)="clearForm()">Clear</button>
+      <button (click)="saveItem()" class="btn save">Save</button>
+      <button (click)="clearForm()" class="btn clear">Clear</button>
     </div>
   </div>
 
-  <!-- Inventory Table Card -->
-  <!-- Displays all inventory items in a table format -->
-  <!-- Includes columns for ID, Name, Category, Qty, Price, Supplier, Popular, Status, and Actions -->
   <div class="table-card">
-    <table class="inventory-table">
+    <table>
       <thead>
         <tr>
           <th>ID</th>
@@ -81,6 +77,7 @@
           <th>Supplier</th>
           <th>Popular</th>
           <th>Status</th>
+          <th>Comments</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -91,18 +88,13 @@
           <td>{{ item.category }}</td>
           <td>{{ item.quantity }}</td>
           <td>${{ item.price.toFixed(2) }}</td>
-          <td>{{ item.supplier || '-' }}</td>
+          <td>{{ item.supplier }}</td>
+          <td>{{ item.popular ? 'Yes' : 'No' }}</td>
+          <td>{{ item.status }}</td>
+          <td>{{ item.comments || '-' }}</td>
           <td>
-            <span class="popular-tag" *ngIf="item.popular">Popular</span>
-          </td>
-          <td>
-            <span class="status-badge status-{{item.status.toLowerCase().replace(' ', '-')}}">
-              {{ item.status }}
-            </span>
-          </td>
-          <td>
-            <button class="action-btn edit-btn" (click)="editItem(item)">Edit</button>
-            <button class="action-btn delete-btn" (click)="deleteItem(item.id)">Delete</button>
+            <button (click)="editItem(item)" class="edit-btn">Edit</button>
+            <button (click)="deleteItem(item.id)" class="del-btn">Delete</button>
           </td>
         </tr>
       </tbody>

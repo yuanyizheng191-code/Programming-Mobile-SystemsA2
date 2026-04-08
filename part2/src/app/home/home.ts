@@ -1,9 +1,8 @@
-/**
-* home.ts
- * @description Angular Component for the Home Dashboard
- * @author Yizheng Yuan
- * @assignment Programming Mobile Systems - Part 2 (Angular Implementation)
- */
+// ==============================================
+// Author: Yizheng Yuan
+// Assignment: Programming Mobile Systems - Part 2
+// Description: Home Component
+// ==============================================
 
 // Import Angular Component decorator
 import { Component } from '@angular/core';

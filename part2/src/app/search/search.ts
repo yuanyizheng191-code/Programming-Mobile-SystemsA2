@@ -1,9 +1,8 @@
-/**
- * search.ts
- * @description Angular Component for searching inventory items
- * @author Yizheng Yuan
- * @assignment Programming Mobile Systems - Part 2 (Angular Implementation)
- */
+// ==============================================
+// Author: Yizheng Yuan
+// Assignment: Programming Mobile Systems - Part 2
+// Description: Search Component
+// ==============================================
 
 // Import necessary Angular core and common modules
 import { Component } from '@angular/core';
